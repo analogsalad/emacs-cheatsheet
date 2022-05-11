@@ -1,19 +1,142 @@
-# Emacs Tips & Keymaps
+# Emacs Tips & Cheatsheet 
+
+This document is a collection of my notes on everything Emacs and Doom. Keep in mind that most of the material is optimized for my preferences and as a result, highly opinionated.
+
 **Table of Contents**
-1. [Shortcuts](#shortcuts)
+1. [Building Emacs](#building-emacs)
+2. [Installing Doom](#installing-doom)
+   + [Doom Configuration](#doom-configuration)
+   + [Doom Commands](#doom-commands)
+3. [Shortcuts](#shortcuts)
    + [Evil Navigation](#evil-navigation)
    + [General](#general)
-       + [Search And Destory](#search-and-destroy)
-       + [Windows](#windows)
-       + [Buffers](#buffers)
-   + [Projects (Projectile)](#projects-projectile)
-   + [Terminal (eterm)](#terminal-eterm)
-   + [File Explorer (treemacs)](#file-explorer)
-   + [Sly](#sly)
-2. [Doom Configuration](#doom-configuration)
-   + [Config Location](#config-location)
-   + [Doom Commands](#doom-commands)
-3. [Resources](#resources)
+     + [Search And Destory](#search-and-destroy)
+     + [Windows](#windows)
+     + [Buffers](#buffers)
+  + [Projects (Projectile)](#projects-projectile)
+  + [Terminal (eterm)](#terminal-eterm)
+  + [File Explorer (treemacs)](#file-explorer)
+  + [Sly](#sly)
+4. [External Resources](#resources)
+
+## Building Emacs
+
+**Step 1. Download Emacs**
+
+> You can check the latest version here: https://ftp.gnu.org/gnu/emacs/
+
+`wget -P ~/tmp https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.gz`
+
+**Step 2. Unzip**
+
+`tar -xzvf emacs-27.2.tar.gz && rm emacs-27.2.tar.gz`
+
+**Step 3. Install Dependencies**
+
+```bash
+sudo apt-get install build-essential automake \
+    libgnutls28-dev libgtk-3-dev libwebkit2gtk-4.0-dev \
+    libxpm-dev libc6-dev xaw3dg-dev zlib1g-dev libx11-dev libjansson-dev \
+    librsvg2-dev libjpeg62-turbo libtiff5-dev libgif-dev libpng-dev \
+    libncurses5-dev texinfo libgccjit-10-dev
+```
+
+> Once built, I personally remove all but `build-essential libc6-dev libjpeg62-turbo` packages.
+
+**Step 4. Build Emacs**
+
+I keep my Emacs binary in `~/bin` and Emacs build in `~/emacs`. The build configuration reflects these with `prefix` and `bindir` flags.
+
+> If you want to try using `checkinstall` tool to keep track of your build. Check the [docs](https://help.ubuntu.com/community/CheckInstall).
+
+`cd emacs-27.2`
+
+`./autogen.sh`
+
+```bash
+./configure --prefix=/home/user/emacs --bindir=/home/user/bin \
+    --with-json --with-gif --with-jpeg --with-png \
+    --with-tiff --with-rsvg`
+```
+
+> If you'd like you can build Emacs 28 and use it's native compilation feature.
+```bash
+# For Emacs 28
+./configure --prefix=/home/user/emacs --bindir=/home/user/bin \
+    --with-native-compilation \
+    --with-json --with-gif --with-jpeg --with-png \
+    --with-tiff --with-rsvg`
+```
+
+`make install`
+
+**Step 5. Clean up**
+
+`make clean`
+
+`make distclean`
+
+#### Uninstalling Emacs
+
+If for some reason you want to uninstall your build, navigate back to the build
+source and run:
+
+`make uninstall && rm -rf "~/.emacs.d"`
+
+> If you have deleted the Emacs source code, follow the build steps, 
+> and finally run `make uninstall`.
+
+## Installing Doom
+
+**Step 1. Install Doom Dependencies**
+
+`sudo apt-get install ripgrep fd-find`
+
+**Step 2. Install Doom**
+
+`git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d`
+
+`cd "~/.emacs.d/bin && doom install"`
+
+_Prompts:_
++ Generate env vars (Y)
++ Install fonts (Y)
+
+**Step 3. Refresh Doom**
+
+If you have a backup of your Doom config, now it's the time to move them to`~/.doom,d/`
+
+Run:
+
+`./doom sync`
+
+### Doom Configuration
+
+There are three configuration files.
+
+`.doom.d/config.el`   - _Custom config, this is your private config._
+
+`.doom.d/init.el`     - _Initializes modules at startup time._
+
+`.doom.d/packages.el` - _Define the packages that you want to install._
+
+You can use `spc f p` to peek into this directory via `projectile`.
+
+### Doom Commands
+
+Doom command line tool lives in `.emacs.d/bin/doom`, and it has some useful commands:
+
+`doom sync`    - _Synchronizes packages and configs._
+
+`doom update`  - _Updates packages._
+
+`doom upgrade` - _Updates Doom itself._
+
+`doom doctor`  - _Helps with diagnosing common issues with your config or environment._
+
+`doom env`     - _Loads your shell env to Doom_
+
+`doom build`   - _Compile packages_
 
 ## Shortcuts
 
@@ -54,7 +177,7 @@
 | Evaluate Code             | `gr` or `gR`       |       |
 
 
-##### Search and Destroy
+#### Search and Destroy
 
 | Search and Destroy                     | Shortcut    | Notes |
 |----------------------------------------|-------------|-------|
@@ -67,7 +190,7 @@ After you search, hit `C-c C-e` to activate `wgrep-mode`. Edit the results
 and hit `Z Z` to save your changes.
 
 
-##### Windows
+#### Windows
 
 | Windows                     | Shortcut     | Notes |
 |-----------------------------|--------------|-------|
@@ -80,7 +203,7 @@ and hit `Z Z` to save your changes.
 | Increase/Decrease Height    | `spc w +-`   |       |
 | Increase/Decrease Width     | `spc w ><`   |       |
 
-##### Buffers
+#### Buffers
 
 | Buffers                   | Shortcut           | Notes |
 |---------------------------|--------------------|-------|
@@ -163,35 +286,7 @@ All projects in the the sub-directory will be indexed, and you will be able to n
 | Load file             | `spc m c l` |       |
 
 
-## Doom Configuration
-
-### Config Location
-
-`${HOME}/.doom.d/config.el`   - _Custom config, this is your private config._
-
-`${HOME}/.doom.d/init.el`     - _Initializes modules at startup time._
-
-`${HOME}/.doom.d/packages.el` - _Define the packages that you want to install._
-
-
-You can use `spc f p` to peek into this directory.
-
-
-### Doom Commands
-
-Doom command line tool lives in `.emacs.d/bin/doom`, and it has some useful commands:
-
-`doom install` - _Installs packages that you've defined in `packages.el`_
-
-`doom update`  - _Updates packages._
-
-`doom sync`    - _Synchronizes packages and configs._
-
-`doom upgrade` - _Updates Doom itself._
-
-`doom doctor`  - _Helps with diagnosing common issues with your config or environment._
-
-## Resources
+## External Resources
 
 1. [Tecosaur Doom Emacs Config Book](https://tecosaur.github.io/emacs-config/config.html#)
 2. [Doom Emacs Cheatsheet](https://gist.github.com/hjertnes/9e14416e8962ff5f03c6b9871945b165)
@@ -199,4 +294,3 @@ Doom command line tool lives in `.emacs.d/bin/doom`, and it has some useful comm
 4. [Emacs Doom for Newbies - Article](https://medium.com/urbint-engineering/emacs-doom-for-newbies-1f8038604e3b)
 5. [Seorenn - Emacs Doom Screencast Playlist](https://www.youtube.com/watch?v=zVFqLNps-K0&list=PLPNohcoOBa5FT65hMZL6SkFmbyqFaLe3b)
 6. [EmacsCast - Emacs Screencast Playlist](https://www.youtube.com/watch?v=7vC8al1ZZz8&list=PLIrdJT_FTtEZb6Mv_tF9L2AO9XXUNnTyj)
-
