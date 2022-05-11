@@ -1,4 +1,4 @@
-# Emacs Tips & Cheatsheet 
+# Emacs Tips & Cheatsheet
 
 This document is a collection of my notes on everything Emacs and Doom. Keep in mind that most of the material is optimized for my preferences and as a result, highly opinionated.
 
@@ -13,10 +13,10 @@ This document is a collection of my notes on everything Emacs and Doom. Keep in 
      + [Search And Destory](#search-and-destroy)
      + [Windows](#windows)
      + [Buffers](#buffers)
-  + [Projects (Projectile)](#projects-projectile)
-  + [Terminal (eterm)](#terminal-eterm)
-  + [File Explorer (treemacs)](#file-explorer)
-  + [Sly](#sly)
+   + [Projects (Projectile)](#projects-projectile)
+   + [Terminal (eterm)](#terminal-eterm)
+   + [File Explorer (treemacs)](#file-explorer)
+   + [Sly](#sly)
 4. [External Resources](#resources)
 
 ## Building Emacs
