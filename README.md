@@ -18,6 +18,13 @@ This document is a collection of my notes on everything Emacs and Doom. Keep in 
    + [File Explorer (treemacs)](#file-explorer)
    + [Sly](#sly)
    + [Org-Mode](#org-mode)
+     + [Headlines](#headlines)
+     + [Lists](#lists)
+     + [Links](#links)
+     + [Content](#content)
+     + [TODOS](#todos)
+     + [Tags](#tags)
+     + [Exporting](#exporting)
 4. [External Resources](#resources)
 
 ## Building Emacs
@@ -289,7 +296,8 @@ All projects in the the sub-directory will be indexed, and you will be able to n
 
 ### Org-Mode
 
-| org-mode headlines           | Shortcut              | Notes |
+#### Headlines
+| headlines           | Shortcut              | Notes |
 |------------------------------|-----------------------|-------|
 | Insert an headline           | `*`                   |       |
 | Add a headline nested deeper | `**` `***`...         |       |
@@ -298,13 +306,15 @@ All projects in the the sub-directory will be indexed, and you will be able to n
 | Promote/Demote headline      | `alt + h/j`           |       |
 
 
-| org-mode lists         | Shortcut              | Notes |
+#### Lists
+| lists         | Shortcut              | Notes |
 |------------------------|-----------------------|-------|
 | Ordered list           | `1. 2. 3. ...`        |       |
 | Unordered list         | `+`                   |       |
 | Insert list item after | `C-RET`               |       |
 | Move list item up/down | `alt + arrow up/down` |       |
 
+#### Links
 | org-mode links           | Shortcut                | Notes                          |
 |--------------------------|-------------------------|--------------------------------|
 | Create a link            | `[[]]`                  |                                |
@@ -314,14 +324,71 @@ When you `insert-link` to a selection, you'll get prompted for the type of link 
 use. Here you can choose to link to a website, another file, another topic, an Emacs command,
 or a code snippet that will be evaluated.
 
-| org-mode content | Shortcut | Notes |
+#### Content
+| content | Shortcut | Notes |
 |------------------|----------|-------|
 | Inline code      | `==`     |       |
 | Code block       | `<s TAB` |       |
 | Quotation        | `<q TAB` |       |
 
+#### TODOs
+You can suffix your headlines with keywords such as TODO or DONE. It's also possible
+to add your custom keywords.
 
-## External Resources
+| todos                           | Shortcut                | Notes                       |
+|---------------------------------|-------------------------|-----------------------------|
+| Add suffix                      | `*** TODO`              |                             |
+| View and choose keywords        | `spc m t`               |                             |
+| Toggle item complete/incomplete | `RET`                   |                             |
+| Increase/Decrease priority      | `Shift + arrow up/down` |                             |
+| Search for todo               | `spc a t`               | Search tags with org-agenda |
+
+Example todo list with progress status.
+
+```org
+**** TODO [%]
+    - [ ] Brush teeth
+    - [ ] Have breakfast
+    - [ ] Rock & Roll
+```
+As you complete the todos with `RET`, the top-level todo will change it's
+percentage.
+
+#### Tags
+You can add tags to headlines, todo items, and other entries. 
+| tags           | Shortcut          | Notes                                  |
+|----------------|-------------------|----------------------------------------|
+| Add tag        | `spc m q`         |                                        |
+| Search for tag | `spc a m`         | Search tags with org-agenda            |
+| Search for tag | `spc m m s` + `m` | Search and filter with org-sparse-tree |
+
+
+#### Exporting
+**Exporting as Markdown**
+In order to export your `.org` file to markdown, `M X` and find `org-md-export-to-markdown`.
+You can then fill the export file name prompt and export.
+
+You can also add the following line to your org file and evaluate the command on the fly.
+``` org
+[[elisp:(org-md-export-to-markdown)]]
+```
+
+**Exporting as Github Flavored Markdown**
+1. Add `ox-gfm` to your packages.
+2. `M X` and look for `org-gfm-export-t- markdown`
+You can also add the following line to your org file and evaluate the command on the fly.
+``` org
+[[elisp:(org-gfm-export-to-markdown)]]
+```
+
+**Exporting as HTML**
+2. `M X` and look for `org-htmlx-export-to-html`
+You can also add the following line to your org file and evaluate the command on the fly.
+``` org
+[[elisp:(org-html-export-to-html)]]
+```
+
+# External Resources
 
 1. [Tecosaur Doom Emacs Config Book](https://tecosaur.github.io/emacs-config/config.html#)
 2. [Doom Emacs Cheatsheet](https://gist.github.com/hjertnes/9e14416e8962ff5f03c6b9871945b165)
