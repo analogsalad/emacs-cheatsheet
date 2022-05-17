@@ -244,13 +244,13 @@ All projects in the the sub-directory will be indexed, and you will be able to n
 
 ### Workspaces
 
-| workspaces                | Shortcut            | Notes |
-|---------------------------|---------------------|-------|
-| Open a new workspace      | `spc tab n`         |       |
-| Switch between workspaces | `alt + 1` `alt + n` |       |
-| Save workspace            | `spc tab s`         |       |
-| Load workspace            | `spc tab l`         |       |
-| Close workspace           | `spc tab c`         |       |
+| workspaces                | Shortcut          | Notes |
+|---------------------------|-------------------|-------|
+| Open a new workspace      | `spc tab n`       |       |
+| Switch between workspaces | `M + 1` `M + n` |       |
+| Save workspace            | `spc tab s`       |       |
+| Load workspace            | `spc tab l`       |       |
+| Close workspace           | `spc tab c`       |       |
 
 ### Terminal (term)
 
@@ -297,22 +297,22 @@ All projects in the the sub-directory will be indexed, and you will be able to n
 ### Org-Mode
 
 #### Headlines
-| headlines           | Shortcut              | Notes |
-|------------------------------|-----------------------|-------|
-| Insert an headline           | `*`                   |       |
-| Add a headline nested deeper | `**` `***`...         |       |
-| Insert headline after        | `C-RET`               |       |
-| Move headline up/down        | `alt + arrow up/down` |       |
-| Promote/Demote headline      | `alt + h/j`           |       |
+| headlines                    | Shortcut            | Notes |
+|------------------------------|---------------------|-------|
+| Insert an headline           | `*`                 |       |
+| Add a headline nested deeper | `**` `***`...       |       |
+| Insert headline after        | `C-RET`             |       |
+| Move headline up/down        | `M + arrow up/down` |       |
+| Promote/Demote headline      | `M + h/j`           |       |
 
 
 #### Lists
-| lists         | Shortcut              | Notes |
-|------------------------|-----------------------|-------|
-| Ordered list           | `1. 2. 3. ...`        |       |
-| Unordered list         | `+`                   |       |
-| Insert list item after | `C-RET`               |       |
-| Move list item up/down | `alt + arrow up/down` |       |
+| lists                  | Shortcut            | Notes |
+|------------------------|---------------------|-------|
+| Ordered list           | `1. 2. 3. ...`      |       |
+| Unordered list         | `+`                 |       |
+| Insert list item after | `C-RET`             |       |
+| Move list item up/down | `M + arrow up/down` |       |
 
 #### Links
 | links          | Shortcut  | Notes                          |
@@ -341,7 +341,7 @@ to add your custom keywords.
 | View and choose keywords        | `spc m t`               |                             |
 | Toggle item complete/incomplete | `RET`                   |                             |
 | Increase/Decrease priority      | `Shift + arrow up/down` |                             |
-| Search for todo               | `spc a t`               | Search tags with org-agenda |
+| Search for todo                 | `spc a t`               | Search tags with org-agenda |
 
 Example todo list with progress status:
 
@@ -367,7 +367,7 @@ You can add tags to headlines, todo items, and other entries.
 #### Exporting
 **Exporting as Markdown**
 
-In order to export your `.org` file to markdown, `M X` and find `org-md-export-to-markdown`.
+In order to export your `.org` file to markdown, `M x` and find `org-md-export-to-markdown`.
 You can then fill the export file name prompt and export.
 
 You can also add the following line to your org file and evaluate the command on the fly.
@@ -378,7 +378,7 @@ You can also add the following line to your org file and evaluate the command on
 **Exporting as Github Flavored Markdown**
 
 1. Add `ox-gfm` to your packages.
-2. `M X` and look for `org-gfm-export-t- markdown`
+2. `M x` and look for `org-gfm-export-t- markdown`
 You can also add the following line to your org file and evaluate the command on the fly.
 ``` org
 [[elisp:(org-gfm-export-to-markdown)]]
@@ -386,7 +386,7 @@ You can also add the following line to your org file and evaluate the command on
 
 **Exporting as HTML**
 
-2. `M X` and look for `org-htmlx-export-to-html`
+1. `M x` and look for `org-htmlx-export-to-html`
 You can also add the following line to your org file and evaluate the command on the fly.
 ``` org
 [[elisp:(org-html-export-to-html)]]
