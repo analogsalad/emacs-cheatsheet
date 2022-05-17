@@ -17,6 +17,7 @@ This document is a collection of my notes on everything Emacs and Doom. Keep in 
    + [Terminal (eterm)](#terminal-eterm)
    + [File Explorer (treemacs)](#file-explorer)
    + [Sly](#sly)
+   + [Org-Mode](#org-mode)
 4. [External Resources](#resources)
 
 ## Building Emacs
@@ -284,6 +285,40 @@ All projects in the the sub-directory will be indexed, and you will be able to n
 | Compile and load file | `spc m c C` |       |
 | Compile and load file | `C-c C-c`   |       |
 | Load file             | `spc m c l` |       |
+
+
+### Org-Mode
+
+| org-mode headlines           | Shortcut              | Notes |
+|------------------------------|-----------------------|-------|
+| Insert an headline           | `*`                   |       |
+| Add a headline nested deeper | `**` `***`...         |       |
+| Insert headline after        | `C-RET`               |       |
+| Move headline up/down        | `alt + arrow up/down` |       |
+| Promote/Demote headline      | `alt + h/j`           |       |
+
+
+| org-mode lists         | Shortcut              | Notes |
+|------------------------|-----------------------|-------|
+| Ordered list           | `1. 2. 3. ...`        |       |
+| Unordered list         | `+`                   |       |
+| Insert list item after | `C-RET`               |       |
+| Move list item up/down | `alt + arrow up/down` |       |
+
+| org-mode links           | Shortcut                | Notes                          |
+|--------------------------|-------------------------|--------------------------------|
+| Create a link            | `[[]]`                  |                                |
+| Link selection           | `spc m l`               | prompt for many types of links |
+
+When you `insert-link` to a selection, you'll get prompted for the type of link you want to
+use. Here you can choose to link to a website, another file, another topic, an Emacs command,
+or a code snippet that will be evaluated.
+
+| org-mode content | Shortcut | Notes |
+|------------------|----------|-------|
+| Inline code      | `==`     |       |
+| Code block       | `<s TAB` |       |
+| Quotation        | `<q TAB` |       |
 
 
 ## External Resources
