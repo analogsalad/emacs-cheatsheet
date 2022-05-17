@@ -356,6 +356,7 @@ percentage.
 
 #### Tags
 You can add tags to headlines, todo items, and other entries.
+
 | tags           | Shortcut          | Notes                                  |
 |----------------|-------------------|----------------------------------------|
 | Add tag        | `spc m q`         |                                        |
