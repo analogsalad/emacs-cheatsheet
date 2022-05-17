@@ -315,10 +315,10 @@ All projects in the the sub-directory will be indexed, and you will be able to n
 | Move list item up/down | `alt + arrow up/down` |       |
 
 #### Links
-| org-mode links           | Shortcut                | Notes                          |
-|--------------------------|-------------------------|--------------------------------|
-| Create a link            | `[[]]`                  |                                |
-| Link selection           | `spc m l`               | prompt for many types of links |
+| links          | Shortcut  | Notes                          |
+|----------------|-----------|--------------------------------|
+| Create a link  | `[[]]`    |                                |
+| Link selection | `spc m l` | prompt for many types of links |
 
 When you `insert-link` to a selection, you'll get prompted for the type of link you want to
 use. Here you can choose to link to a website, another file, another topic, an Emacs command,
@@ -343,7 +343,7 @@ to add your custom keywords.
 | Increase/Decrease priority      | `Shift + arrow up/down` |                             |
 | Search for todo               | `spc a t`               | Search tags with org-agenda |
 
-Example todo list with progress status.
+Example todo list with progress status:
 
 ```org
 **** TODO [%]
@@ -355,7 +355,7 @@ As you complete the todos with `RET`, the top-level todo will change it's
 percentage.
 
 #### Tags
-You can add tags to headlines, todo items, and other entries. 
+You can add tags to headlines, todo items, and other entries.
 | tags           | Shortcut          | Notes                                  |
 |----------------|-------------------|----------------------------------------|
 | Add tag        | `spc m q`         |                                        |
@@ -365,6 +365,7 @@ You can add tags to headlines, todo items, and other entries.
 
 #### Exporting
 **Exporting as Markdown**
+
 In order to export your `.org` file to markdown, `M X` and find `org-md-export-to-markdown`.
 You can then fill the export file name prompt and export.
 
@@ -374,6 +375,7 @@ You can also add the following line to your org file and evaluate the command on
 ```
 
 **Exporting as Github Flavored Markdown**
+
 1. Add `ox-gfm` to your packages.
 2. `M X` and look for `org-gfm-export-t- markdown`
 You can also add the following line to your org file and evaluate the command on the fly.
@@ -382,6 +384,7 @@ You can also add the following line to your org file and evaluate the command on
 ```
 
 **Exporting as HTML**
+
 2. `M X` and look for `org-htmlx-export-to-html`
 You can also add the following line to your org file and evaluate the command on the fly.
 ``` org
