@@ -397,6 +397,5 @@ You can also add the following line to your org file and evaluate the command on
 1. [Tecosaur Doom Emacs Config Book](https://tecosaur.github.io/emacs-config/config.html#)
 2. [Doom Emacs Cheatsheet](https://gist.github.com/hjertnes/9e14416e8962ff5f03c6b9871945b165)
 3. [Zaiste Programming - Emacs Doom Screencast Playlist](https://www.youtube.com/watch?v=rCMh7srOqvw&list=PLhXZp00uXBk4np17N39WvB80zgxlZfVwj)
-4. [Emacs Doom for Newbies - Article](https://medium.com/urbint-engineering/emacs-doom-for-newbies-1f8038604e3b)
 5. [Seorenn - Emacs Doom Screencast Playlist](https://www.youtube.com/watch?v=zVFqLNps-K0&list=PLPNohcoOBa5FT65hMZL6SkFmbyqFaLe3b)
 6. [EmacsCast - Emacs Screencast Playlist](https://www.youtube.com/watch?v=7vC8al1ZZz8&list=PLIrdJT_FTtEZb6Mv_tF9L2AO9XXUNnTyj)
