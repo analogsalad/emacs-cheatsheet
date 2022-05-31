@@ -49,7 +49,7 @@ sudo apt-get install build-essential automake \
     libncurses5-dev texinfo libgccjit-10-dev
 ```
 
-> Once built, I personally remove all but `build-essential libc6-dev libjpeg62-turbo` packages.
+> Once built, I personally remove all but `build-essential libc6-dev libjpeg62-turbo` packages. Keep `libcgccjit-10-dev` installed if you're going to build and use Emacs 28.
 
 **Step 4. Build Emacs**
 
@@ -64,18 +64,25 @@ I keep my Emacs binary in `~/bin` and Emacs build in `~/emacs`. The build config
 ```bash
 ./configure --prefix=/home/user/emacs --bindir=/home/user/bin \
     --with-json --with-gif --with-jpeg --with-png \
-    --with-tiff --with-rsvg`
+    --with-tiff --with-rsvg
 ```
 
-> If you'd like you can build Emacs 28 and use it's native compilation feature.
+> If you'd like you can build Emacs 28 and use it's native compilation feature. Use 
+> the following config:
+
 ```bash
-# For Emacs 28
-./configure --prefix=/home/user/emacs --bindir=/home/user/bin \
+./configure --prefix=/home/user/emacs \
     --with-native-compilation \
     --with-json --with-gif --with-jpeg --with-png \
-    --with-tiff --with-rsvg`
+    --with-tiff --with-rsvg
 ```
 
+Build:
+
+`make -j$(nproc)`
+
+
+Install:
 `make install`
 
 **Step 5. Clean up**
