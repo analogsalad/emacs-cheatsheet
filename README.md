@@ -77,19 +77,18 @@ I keep my Emacs binary in `~/bin` and Emacs build in `~/emacs`. The build config
     --with-tiff --with-rsvg
 ```
 
-Build:
+> Build:
 
 `make -j$(nproc)`
 
 
-Install:
+> Install:
+
 `make install`
 
 **Step 5. Clean up**
 
-`make clean`
-
-`make distclean`
+`make clean && make distclean`
 
 #### Uninstalling Emacs
 
